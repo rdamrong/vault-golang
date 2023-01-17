@@ -13,8 +13,6 @@ import (
 	vault "github.com/hashicorp/vault/api"
 )
 
-// This is the accompanying code for the Developer Quick Start.
-// WARNING: Using root tokens is insecure and should never be done in production!
 func main() {
 	caCert := "./myvault/tls/ca.crt"
 	cert := ""
@@ -61,16 +59,9 @@ func main() {
 		log.Fatalf("unable to read secret: %v", err)
 	}
 
-//	value, ok := secret.Data["password"].(string)
-//	if !ok {
-//		log.Fatalf("value type assertion failed: %T %#v", secret.Data["password"], secret.Data["password"])
-//	}
+
 	fmt.Printf("Secret access_id at myproject/project1 is %s\n", secret.Data["access_id"])
 	fmt.Printf("Secret access_key at myproject/project1 is %s\n", secret.Data["access_key"])
 
-//	if value != "Hashi123" {
-//		log.Fatalf("unexpected password value %q retrieved from vault", value)
-//	}
 
-//	fmt.Println("Access granted!")
 }
